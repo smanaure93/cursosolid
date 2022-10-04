@@ -53,4 +53,56 @@
     console.log(`Crear actor: ${fullName} nacio el ${birthdate.toString()}`);
     return true;
   }
+
+  const getPayAmount = ({
+    isDead = false,
+    isSeparated = true,
+    isRetired = false,
+  }): number => {
+    // Mal
+    //   let result;
+    //   if (isDead) {
+    //     result = 1500;
+    //   } else {
+    //     if (isSeparated) {
+    //       result = 2500;
+    //     } else {
+    //       if (isRetired) {
+    //         result = 3000;
+    //       } else {
+    //         result = 4000;
+    //       }
+    //     }
+    //   }
+
+    //   return result;
+
+    // Versión 1 - Mejor
+    // let result = 1500;
+    // if (!isDead) {
+    //   switch (isSeparated) {
+    //     case true:
+    //       result = 2500;
+    //       break;
+    //     case false:
+    //       result = isRetired ? 3000 : 4000;
+    //       break;
+
+    //     default:
+    //       break;
+    //   }
+    // }
+    // return result;
+
+    // Versión 2 - Buena
+    if (isDead) {
+      return 1500;
+    }
+
+    if (isSeparated) {
+      return 2500;
+    }
+
+    return isRetired ? 3000 : 4000;
+  };
 })();
